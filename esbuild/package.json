@@ -1,0 +1,9 @@
+{
+  "name": "esbuild-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.2"
+  }
+}
