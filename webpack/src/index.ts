@@ -1,6 +1,15 @@
-import { getToken } from "./util";
+import { getConfig } from "./util";
 
+export class FastPlugin {
+  options: Record<string, any>
+  constructor(options) {
+    this.options = options
+  }
 
-export function getRandomToken() {
-  return `${getToken()}_${Math.random()}`
+  async init() {
+    const config = await getConfig()
+    console.log(config);
+  }
 }
+
+

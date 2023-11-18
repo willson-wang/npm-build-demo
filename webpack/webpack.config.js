@@ -6,13 +6,14 @@ const commonConfig = {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   optimization: {
-    minimize: false
+    minimize: true
   },
   module: {
     rules: [
       {
         test: /\.[tj]sx?$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        exclude: /\bcore-js\b/
       }
     ]
   }
@@ -23,44 +24,47 @@ module.exports = [{
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].cjs.js',
+    filename: '[name].min.js',
     library: {
+      type: "umd",
       name: 'MyLibrary',
-      type: 'commonjs',
-    },
+    }
   },
-}, {
-  ...commonConfig,
-  entry: './src/index.ts',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].esm.js',
-    library: {
-      type: 'module',
-    },
-  },
-  experiments: {
-    outputModule: true,
-  },
-}, {
-  ...commonConfig,
-  entry: {
-    index: './src/index.ts',
-    util: './src/util.ts'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist-mutil'),
-    filename: '[name].js',
-    library: {
-      type: 'module',
-    },
-  },
-  optimization: {
-    minimize: false,
-    usedExports: false,
-    sideEffects: false
-  },
-  experiments: {
-    outputModule: true,
-  },
-}]
+},
+// {
+//   ...commonConfig,
+//   entry: './src/index.ts',
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     filename: '[name].esm.js',
+//     library: {
+//       type: 'module',
+//     },
+//   },
+//   experiments: {
+//     outputModule: true,
+//   },
+// },
+// {
+//   ...commonConfig,
+//   entry: {
+//     index: './src/index.ts',
+//     util: './src/util.ts'
+//   },
+//   output: {
+//     path: path.resolve(__dirname, 'dist-mutil'),
+//     filename: '[name].js',
+//     library: {
+//       type: 'module',
+//     },
+//   },
+//   optimization: {
+//     minimize: false,
+//     usedExports: false,
+//     sideEffects: false
+//   },
+//   experiments: {
+//     outputModule: true,
+//   },
+// }
+]

@@ -1,12 +1,19 @@
 {
   "name": "rollup-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "license": "MIT",
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs"
+  },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.2",
-    "rollup": "^3.28.1"
+    "rollup": "^4.5.0"
   },
   "dependencies": {
     "tslib": "^2.6.2"

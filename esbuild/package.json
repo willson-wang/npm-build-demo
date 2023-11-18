@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "node build.js"
+  },
   "devDependencies": {
+    "@types/node": "^20.9.0",
+    "axios": "^1.6.1",
     "esbuild": "^0.19.2"
   }
 }

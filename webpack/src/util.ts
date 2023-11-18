@@ -1,3 +1,5 @@
-export function getToken() {
-  return 'xjskak8999'
+import axios from 'axios'
+
+export function getConfig() {
+  return axios.get('xxxx')
 }
